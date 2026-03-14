@@ -349,6 +349,34 @@
       65%       { transform: rotate(-3deg) scale(.97); }
     }
 
+    /* ── scroll arrow ── */
+    .scroll-arrow {
+      display: flex;
+      justify-content: center;
+      padding: 8px 0 24px;
+    }
+
+    .scroll-arrow svg-wrap {
+      display: none;
+    }
+
+    .scroll-arrow-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: var(--white);
+      box-shadow: 0 8px 24px rgba(22,70,255,.35);
+      animation: arrowBounce 2s ease-in-out infinite;
+    }
+
+    @keyframes arrowBounce {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(7px); }
+    }
+
     /* ════════════════════════════════
        TICKER
     ════════════════════════════════ */
@@ -421,7 +449,7 @@
 
     .band-sub {
       font-size: 1rem; font-weight: 300;
-      color: rgba(255,255,255,.65);
+      color: rgba(255,255,255,1);
       max-width: 44ch; line-height: 1.65;
       position: relative; z-index: 1;
     }
@@ -464,7 +492,11 @@
     .card-mzia  .card-stripe { background: #FF6EB4; }
     .card-nino  .card-stripe { background: var(--green); }
     .card-ninoz .card-stripe { background: var(--orange); }
-    .card-yana  .card-stripe { background: var(--yellow); }
+    .card-yana   .card-stripe { background: var(--yellow); }
+    .card-saba    .card-stripe { background: var(--blue); }
+    .card-sandro  .card-stripe { background: var(--orange); }
+    .card-mariam    .card-stripe { background: var(--green); }
+    .card-anastasia .card-stripe { background: #FF6EB4; }
 
     /* little floating emoji sticker on card */
     .card-sticker {
@@ -541,6 +573,11 @@
       line-height: 1.05; color: var(--white);
     }
     .closing-headline .y { color: var(--yellow); }
+
+    .closing-hearts {
+      font-size: 2.8rem;
+      animation: heartBeat 2.2s ease-in-out infinite;
+    }
 
     .closing-right {
       position: relative; z-index: 1;
@@ -733,6 +770,15 @@
 
     </section>
 
+    <!-- ── SCROLL ARROW ──────────────────────── -->
+    <div class="scroll-arrow" aria-hidden="true">
+      <div class="scroll-arrow-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M12 5v14M5 13l7 7 7-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+
     <!-- ── TICKER ─────────────────────────────── -->
     <div class="ticker-outer reveal" aria-hidden="true">
       <div class="ticker-track">
@@ -760,10 +806,10 @@
     <div class="blue-band reveal">
       <div class="band-cake">🎂</div>
       <h2 class="band-headline">
-        Here's to the <span class="accent">dreamers</span><br>who make it real.
+        Albina & Anna —<br>you are <span class="accent">absolutely</span> amazing! 💙💛
       </h2>
       <p class="band-sub">
-        Building a company takes courage, vision, and a lot of heart. You have all three — and then some.
+        Two incredible women, one beautiful mission. Thank you for pouring your hearts into everything you do — the whole team is so lucky to have you! 🥰
       </p>
     </div>
 
@@ -773,7 +819,36 @@
 
       <div class="cards">
 
-        <article class="card card-mari reveal" style="transition-delay:.05s">
+        <article class="card card-saba reveal" style="transition-delay:.05s">
+          <div class="card-stripe"></div>
+          <span class="card-sticker">🌟</span>
+          <div class="card-inner">
+            <div class="card-author">
+              <div class="card-avatar"><img src="photos/Saba.png" alt="Saba"></div>
+              <div>
+                <div class="card-name">Saba</div>
+              </div>
+            </div>
+            <p class="card-msg">Miss Albina, happy birthday to you! Wish you all the best with health, luck, success and to have a wonderful time with your family and friends.</p>
+            <p class="card-msg">Miss Ana, happy birthday to you! Wish you all the best with health, luck, success and to have a peaceful and wonderful time with your family and friends.</p>
+          </div>
+        </article>
+
+        <article class="card card-sandro reveal" style="transition-delay:.12s">
+          <div class="card-stripe"></div>
+          <span class="card-sticker">♥️</span>
+          <div class="card-inner">
+            <div class="card-author">
+              <div class="card-avatar"><img src="photos/Sandro.png" alt="Sandro"></div>
+              <div>
+                <div class="card-name">Sandro</div>
+              </div>
+            </div>
+            <p class="card-msg">Happy birthday Albina & Anna, wish you all the best from the bottom of my heart. Wish you happiness with those you love ♥️</p>
+          </div>
+        </article>
+
+        <article class="card card-mari reveal" style="transition-delay:.2s">
           <div class="card-stripe"></div>
           <span class="card-sticker">💙</span>
           <div class="card-inner">
@@ -859,6 +934,34 @@
           </div>
         </article>
 
+        <article class="card card-mariam reveal" style="transition-delay:.6s">
+          <div class="card-stripe"></div>
+          <span class="card-sticker">🥳</span>
+          <div class="card-inner">
+            <div class="card-author">
+              <div class="card-avatar"><img src="photos/mariamg.png" alt="Mariam Gogichaishvili"></div>
+              <div>
+                <div class="card-name">Mariam Gogichaishvili</div>
+              </div>
+            </div>
+            <p class="card-msg">Happy Birthday Albina & Anna! 🥳 Wishing you a wonderful year ahead filled with continued success, good health, and great achievements. Enjoy your special day ❤️</p>
+          </div>
+        </article>
+
+        <article class="card card-anastasia reveal" style="transition-delay:.68s">
+          <div class="card-stripe"></div>
+          <span class="card-sticker">❤️</span>
+          <div class="card-inner">
+            <div class="card-author">
+              <div class="card-avatar"><img src="photos/Anastasia.jpeg" alt="Anastasia"></div>
+              <div>
+                <div class="card-name">Anastasia</div>
+              </div>
+            </div>
+            <p class="card-msg">Happy Birthday Dear Albina & Anna! The best and warmest wishes to you ❤️❤️</p>
+          </div>
+        </article>
+
       </div>
     </section>
 
@@ -867,19 +970,11 @@
       <div class="closing-left">
         <div class="closing-overline">From the whole Robocode family 🎊</div>
         <h2 class="closing-headline">
-          Wishing you the<br>most <span class="y">brilliant</span> year yet.
+          Wishing you the<br>most <span class="y">brilliant</span> year yet!!!
         </h2>
       </div>
       <div class="closing-right">
-        <div class="closing-logo-wrap">
-          <img src="photos/robocode logo.png" alt="Robocode">
-        </div>
-        <div class="palette">
-          <div class="pal-dot" style="background:var(--blue)"></div>
-          <div class="pal-dot" style="background:var(--green)"></div>
-          <div class="pal-dot" style="background:var(--orange)"></div>
-          <div class="pal-dot" style="background:var(--yellow)"></div>
-        </div>
+        <div class="closing-hearts">💙💛</div>
       </div>
     </div>
 
