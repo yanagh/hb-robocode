@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Robocode Georgia Founders</title>
+  <style>
+    :root {
+      --blue: #1646FF;
+      --green: #33F981;
+      --orange: #FF7939;
+      --yellow: #E5FB6D;
+      --white: #FFFFFF;
+      --ink: #0A163E;
+      --paper: #FFFDF6;
+      --shadow: 0 20px 60px rgba(10, 22, 62, 0.14);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Avenir Next", "Trebuchet MS", "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 15% 20%, rgba(229, 251, 109, 0.85), transparent 22%),
+        radial-gradient(circle at 80% 10%, rgba(51, 249, 129, 0.65), transparent 20%),
+        radial-gradient(circle at 82% 72%, rgba(255, 121, 57, 0.28), transparent 24%),
+        linear-gradient(135deg, #fefefe 0%, #f7fbff 35%, #fff6ef 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .page {
+      position: relative;
+      width: min(1200px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 24px 0 80px;
+    }
+
+    .confetti {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .confetti span {
+      position: absolute;
+      width: 14px;
+      height: 26px;
+      border-radius: 999px;
+      opacity: 0.85;
+      animation: drift linear infinite;
+    }
+
+    @keyframes drift {
+      from {
+        transform: translate3d(0, -15vh, 0) rotate(0deg);
+      }
+      to {
+        transform: translate3d(0, 115vh, 0) rotate(360deg);
+      }
+    }
+
+    .hero {
+      position: relative;
+      z-index: 1;
+      margin-top: 10px;
+      padding: 34px 24px 28px;
+      border-radius: 46px;
+      background:
+        radial-gradient(circle at 8% 16%, rgba(229, 251, 109, 0.95), transparent 16%),
+        radial-gradient(circle at 90% 18%, rgba(51, 249, 129, 0.82), transparent 18%),
+        radial-gradient(circle at 18% 90%, rgba(255, 121, 57, 0.28), transparent 16%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(250, 252, 255, 0.95));
+      border: 3px solid rgba(22, 70, 255, 0.08);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      pointer-events: none;
+    }
+
+    .hero::before {
+      width: 180px;
+      height: 180px;
+      left: -56px;
+      top: 160px;
+      background: rgba(22, 70, 255, 0.1);
+    }
+
+    .hero::after {
+      width: 220px;
+      height: 220px;
+      right: -78px;
+      bottom: -40px;
+      background: rgba(229, 251, 109, 0.3);
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 1;
+      max-width: 920px;
+      margin: 0 auto 28px;
+      padding: 0;
+    }
+
+    .brand-chip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 999px;
+      background: var(--blue);
+      color: var(--white);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 14px 24px rgba(22, 70, 255, 0.22);
+      margin: 0 auto 22px;
+    }
+
+    .brand-chip img {
+      height: 30px;
+      width: auto;
+    }
+
+    h1 {
+      margin: 0 auto;
+      max-width: 18ch;
+      font-size: clamp(2.6rem, 6.8vw, 5.2rem);
+      line-height: 0.98;
+      letter-spacing: -0.06em;
+      text-transform: uppercase;
+    }
+
+    .headline-line {
+      display: block;
+      background: linear-gradient(90deg, var(--blue), var(--orange));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .headline-accent {
+      display: block;
+      margin-top: 8px;
+      color: var(--ink);
+      position: relative;
+    }
+
+    .headline-accent::after {
+      content: "";
+      position: absolute;
+      left: 2%;
+      right: 2%;
+      bottom: 8px;
+      height: 18px;
+      background: var(--yellow);
+      z-index: -1;
+      transform: skewX(-12deg);
+      border-radius: 999px;
+    }
+
+    .headline-brand {
+      color: var(--blue);
+    }
+
+    .hero-visual {
+      position: relative;
+      z-index: 1;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 72px 34px 42px;
+      border-radius: 42px;
+      background:
+        radial-gradient(circle at top left, rgba(229, 251, 109, 0.95), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(51, 249, 129, 0.5), transparent 26%),
+        linear-gradient(135deg, rgba(22, 70, 255, 1), rgba(53, 103, 255, 0.96) 62%, rgba(255, 121, 57, 0.9));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero-visual::before,
+    .hero-visual::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      z-index: 0;
+    }
+
+    .hero-visual::before {
+      width: 210px;
+      height: 210px;
+      right: -54px;
+      top: 120px;
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .hero-visual::after {
+      width: 150px;
+      height: 150px;
+      left: -34px;
+      bottom: 52px;
+      background: rgba(229, 251, 109, 0.82);
+    }
+
+    .eyes-sticker {
+      position: absolute;
+      top: 16px;
+      right: 24px;
+      width: 140px;
+      transform: rotate(7deg);
+      filter: drop-shadow(0 12px 20px rgba(10, 22, 62, 0.18));
+      z-index: 3;
+    }
+
+    .photo-stack {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      align-items: end;
+      gap: 26px;
+      flex-wrap: wrap;
+    }
+
+    .photo-card {
+      position: relative;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 6px solid var(--white);
+      background: var(--white);
+      width: min(320px, 42vw);
+      aspect-ratio: 1 / 1.12;
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .photo-main {
+      transform: rotate(-5deg);
+    }
+
+    .photo-side {
+      transform: rotate(5deg) translateY(18px);
+    }
+
+    .badge {
+      position: absolute;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 16px 18px;
+      border-radius: 999px;
+      font-weight: 900;
+      line-height: 1;
+      box-shadow: 0 18px 30px rgba(10, 22, 62, 0.12);
+    }
+
+    .badge-blue {
+      top: 18px;
+      left: 24px;
+      background: var(--blue);
+      color: var(--white);
+      transform: rotate(-10deg);
+      z-index: 2;
+    }
+
+    .badge-green {
+      right: 24px;
+      bottom: 18px;
+      background: var(--green);
+      color: var(--ink);
+      transform: rotate(6deg);
+      z-index: 2;
+    }
+
+    section {
+      position: relative;
+      z-index: 1;
+      margin-top: 42px;
+    }
+
+    .section-card {
+      background: rgba(255, 255, 255, 0.82);
+      border: 2px solid rgba(10, 22, 62, 0.07);
+      box-shadow: var(--shadow);
+      border-radius: 36px;
+      padding: 30px;
+      backdrop-filter: blur(8px);
+    }
+
+    .messages {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .message-card {
+      display: block;
+      padding: 18px;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(246, 251, 255, 0.98));
+      border: 2px solid rgba(22, 70, 255, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .message-card::before {
+      content: "";
+      position: absolute;
+      inset: auto auto 0 0;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: rgba(229, 251, 109, 0.32);
+      transform: translate(-30%, 35%);
+    }
+
+    .bubble-wrap {
+      position: relative;
+      z-index: 1;
+    }
+
+    .author-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .author-avatar {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex: 0 0 auto;
+      border: 3px solid var(--white);
+      box-shadow: 0 8px 20px rgba(10, 22, 62, 0.12);
+      background: rgba(22, 70, 255, 0.08);
+    }
+
+    .author-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .author {
+      display: inline-block;
+      margin: 0;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background: var(--blue);
+      color: var(--white);
+    }
+
+    .message-bubble {
+      position: relative;
+      margin: 0;
+      padding: 18px 20px;
+      border-radius: 24px 24px 24px 8px;
+      background: var(--paper);
+      border: 2px solid rgba(10, 22, 62, 0.08);
+      font-size: 1rem;
+      line-height: 1.65;
+      box-shadow: 0 10px 24px rgba(10, 22, 62, 0.08);
+    }
+
+    .message-bubble + .message-bubble {
+      margin-top: 14px;
+    }
+
+    .message-bubble::after {
+      content: "";
+      position: absolute;
+      left: -10px;
+      bottom: 14px;
+      width: 24px;
+      height: 24px;
+      background: var(--paper);
+      border-left: 2px solid rgba(10, 22, 62, 0.08);
+      border-bottom: 2px solid rgba(10, 22, 62, 0.08);
+      transform: rotate(28deg);
+      border-bottom-left-radius: 6px;
+    }
+
+    .message-card.sofi .author {
+      background: var(--orange);
+      color: var(--white);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .gallery-item {
+      position: relative;
+      min-height: 180px;
+      border-radius: 26px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: var(--white);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .gallery-item.large {
+      grid-column: span 7;
+      min-height: 320px;
+    }
+
+    .gallery-item.tall {
+      grid-column: span 5;
+      min-height: 320px;
+    }
+
+    .gallery-item.medium {
+      grid-column: span 4;
+      min-height: 240px;
+    }
+
+    .gallery-item.wide {
+      grid-column: span 8;
+      min-height: 240px;
+    }
+
+    .gallery-item.note {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background:
+        linear-gradient(135deg, rgba(22, 70, 255, 0.96), rgba(51, 249, 129, 0.9)),
+        var(--blue);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .gallery-item.note p {
+      margin: 0;
+      max-width: 18ch;
+      font-size: clamp(1.3rem, 2vw, 2rem);
+      line-height: 1.1;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .footer-note {
+      text-align: center;
+      font-weight: 800;
+      margin-top: 28px;
+      color: rgba(10, 22, 62, 0.72);
+    }
+
+    @media (max-width: 980px) {
+      .hero-visual {
+        padding: 72px 22px 30px;
+      }
+
+      .messages {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-item.large,
+      .gallery-item.tall,
+      .gallery-item.medium,
+      .gallery-item.wide {
+        grid-column: span 12;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        width: min(100% - 20px, 1200px);
+        padding-top: 14px;
+      }
+
+      .hero-copy,
+      .section-card {
+        padding: 22px;
+        border-radius: 28px;
+      }
+
+      .hero {
+        padding: 26px 16px 20px;
+      }
+
+      .hero-copy {
+        padding: 0;
+      }
+
+      .hero-visual {
+        padding: 62px 16px 24px;
+      }
+
+      .eyes-sticker {
+        width: 110px;
+        right: 10px;
+      }
+
+      .photo-stack {
+        gap: 16px;
+      }
+
+      .photo-card {
+        width: min(100%, 280px);
+        aspect-ratio: 1 / 1.04;
+      }
+
+      .badge {
+        font-size: 0.9rem;
+        padding: 14px 16px;
+      }
+
+      .badge-blue {
+        left: 14px;
+      }
+
+      .badge-green {
+        right: 14px;
+      }
+
+    }
+  </style>
+</head>
+<body>
+  <div class="confetti" aria-hidden="true">
+    <span style="left: 4%; top: -10%; background: var(--blue); animation-duration: 15s; animation-delay: -1s; transform: rotate(18deg);"></span>
+    <span style="left: 11%; top: -20%; background: var(--orange); animation-duration: 12s; animation-delay: -5s;"></span>
+    <span style="left: 18%; top: -12%; background: var(--yellow); animation-duration: 18s; animation-delay: -8s;"></span>
+    <span style="left: 27%; top: -8%; background: var(--green); animation-duration: 13s; animation-delay: -3s;"></span>
+    <span style="left: 39%; top: -16%; background: var(--orange); animation-duration: 17s; animation-delay: -6s;"></span>
+    <span style="left: 46%; top: -14%; background: var(--blue); animation-duration: 14s; animation-delay: -9s;"></span>
+    <span style="left: 58%; top: -18%; background: var(--green); animation-duration: 16s; animation-delay: -4s;"></span>
+    <span style="left: 67%; top: -11%; background: var(--yellow); animation-duration: 11s; animation-delay: -7s;"></span>
+    <span style="left: 76%; top: -21%; background: var(--blue); animation-duration: 19s; animation-delay: -2s;"></span>
+    <span style="left: 87%; top: -13%; background: var(--orange); animation-duration: 15s; animation-delay: -10s;"></span>
+    <span style="left: 94%; top: -9%; background: var(--green); animation-duration: 12s; animation-delay: -1.5s;"></span>
+  </div>
+
+  <main class="page">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="brand-chip">
+          <img src="photos/robocode logo.png" alt="Robocode logo">
+        </div>
+        <h1>
+          <span class="headline-line">Happy Birthday</span>
+          <span class="headline-accent">Dear <span class="headline-brand">Robocode Georgia</span> Founders!</span>
+        </h1>
+      </div>
+
+      <div class="hero-visual" aria-label="Founder portraits">
+        <img class="eyes-sticker" src="photos/robocode eyes.png" alt="Robocode eyes graphic">
+        <div class="badge badge-blue">HIP HIP<br>HOORAY</div>
+        <div class="photo-stack">
+          <div class="photo-card photo-main">
+            <img src="photos/Albina.png" alt="Albina portrait">
+          </div>
+          <div class="photo-card photo-side">
+            <img src="photos/Anna.png" alt="Anna portrait">
+          </div>
+        </div>
+        <div class="badge badge-green">FOUNDERS<br>DAY</div>
+      </div>
+    </section>
+
+    <section class="section-card">
+      <div class="messages">
+        <article class="message-card mari">
+          <div class="bubble-wrap">
+            <div class="author-row">
+              <div class="author-avatar">
+                <img src="photos/Mari Kurdadze.png" alt="Mari Kurdadze">
+              </div>
+              <p class="author">Mari Kurdadze</p>
+            </div>
+            <p class="message-bubble">Happy Birthday! Wishing you a wonderful day filled with happiness and a year ahead full of success, new opportunities, and great achievements. Thank you for your support and leadership. May this year bring you even more inspiration and exciting moments.</p>
+          </div>
+        </article>
+
+        <article class="message-card sofi">
+          <div class="bubble-wrap">
+            <div class="author-row">
+              <div class="author-avatar">
+                <img src="photos/Sofi.png" alt="Sofi">
+              </div>
+              <p class="author">Sofi</p>
+            </div>
+            <p class="message-bubble">Albina and Ana are the most caring people I know and I wish them best, may their lives be full of love and happiness! With love from Sofia.</p>
+          </div>
+        </article>
+
+        <article class="message-card">
+          <div class="bubble-wrap">
+            <div class="author-row">
+              <div class="author-avatar">
+                <img src="photos/Nino Chitaia.png" alt="Nino Chitaia">
+              </div>
+              <p class="author">Nino Chitaia</p>
+            </div>
+            <p class="message-bubble">Dear Albina, Happy Birthday! 🎈 May your day be full of joy and surrounded by people who care about you. I hope the year ahead brings you success, good health, and lots of beautiful moments. Never stop chasing your dreams and believing in yourself!</p>
+            <p class="message-bubble">Dear Anna, Happy Birthday! 💕💥Wishing you a wonderful day and a year ahead filled with success, happiness, and great achievements. It’s always a pleasure working with you. Enjoy your special day!🎀🪄</p>
+          </div>
+        </article>
+
+        <article class="message-card">
+          <div class="bubble-wrap">
+            <div class="author-row">
+              <div class="author-avatar">
+                <img src="photos/Nino Zautashvili.png" alt="Nino Zautashvili">
+              </div>
+              <p class="author">Nino Zautashvili</p>
+            </div>
+            <p class="message-bubble">Dear Albina, warm birthday wishes! May this special day bring you joy and the coming year bring happiness and good health 🥰✨️</p>
+            <p class="message-bubble">Happy birthday, Ana! Wishing you a lovely day, good health, and many pleasant surprises throughout the year ✨️❤️</p>
+          </div>
+        </article>
+
+        <article class="message-card">
+          <div class="bubble-wrap">
+            <div class="author-row">
+              <div class="author-avatar">
+                <img src="photos/Yana.png" alt="Yana">
+              </div>
+              <p class="author">Yana</p>
+            </div>
+            <p class="message-bubble">Dear Albina &amp; Anna, Sincere congratulations on your birthdays! Wishing you a wonderful year ahead filled with happiness, inspiration, and continued success. May the school keep growing and reaching new heights. Warmest wishes. ❤️❤️</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+  </main>
+</body>
+</html>
